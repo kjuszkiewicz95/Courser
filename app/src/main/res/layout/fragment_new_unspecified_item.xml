@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@drawable/blue_green_gradient">
+
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+<RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+    <LinearLayout
+        android:id="@+id/event_name_container"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            />
+        <EditText
+            android:id="@+id/event_name_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="20sp"
+            android:hint="enter name here"
+            android:textColorHint="@android:color/background_light"
+            android:ems="7"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/event_time_container"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/event_name_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time:"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/startTimeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="9dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="8dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/rectangular_curved_border_white_transparent"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="8dp"
+            android:text="to"
+            android:id="@+id/textView2"/>
+
+        <Button
+            android:id="@+id/endTimeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="end"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="9dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="8dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/rectangular_curved_border_white_transparent"
+            style="?android:attr/borderlessButtonStyle"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/event_date_container"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/event_time_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="When:"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+        <Button
+            android:id="@+id/dateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="enter date"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="9dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="8dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/rectangular_curved_border_white_transparent"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/event_category_container"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/event_date_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category:"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/event_grade_container"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="6dp"
+        android:layout_below="@id/event_category_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Graded:"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="4dp"
+            android:textSize="25sp" />
+
+        <CheckBox
+            android:id="@+id/gradedCheckBox"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/custom_cb_white"
+            />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/event_topics_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Topics / To-do List"
+        android:textSize="25sp"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="13dp"
+        android:layout_below="@id/event_grade_container"
+        />
+
+    <View
+        android:id="@+id/event_topics_to_do_separator"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:layout_below="@id/event_topics_label"/>
+
+    <ImageView
+        android:id="@+id/add_topic_imageView"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignBottom="@id/event_topics_label"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="17dp"
+        android:padding="0dp"
+        android:background="@drawable/white_add_symbol"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/topics_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/event_topics_to_do_separator"
+        android:layout_marginTop="10dp"
+        >
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        android:textColor="@color/second_light_blue_unpressed"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_textview"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/topics_container"
+        />
+
+    <Space
+        android:layout_below="@id/doneButton"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        />
+
+</RelativeLayout>
+</ScrollView>
+
+</RelativeLayout>

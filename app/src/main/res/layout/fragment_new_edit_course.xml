@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/blue_green_gradient"
+                >
+
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/scrollView">
+
+
+<RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              >
+
+    <LinearLayout
+        android:id="@+id/course_name_container"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            />
+        <EditText
+            android:id="@+id/course_name_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="20sp"
+            android:hint="enter course name"
+            android:textColorHint="@android:color/background_light"
+            android:ems="8"
+            android:layout_marginLeft="4dp"
+           />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/course_time_container"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/course_name_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time:"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/startTimeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="@drawable/white_to_blue_text_color"
+            android:layout_marginLeft="9dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="8dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/white_to_blue_outline_button"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="8dp"
+            android:text="to"
+            android:id="@+id/textView2"/>
+
+        <Button
+            android:id="@+id/endTimeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="end"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="9dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="8dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/white_to_blue_outline_button"
+            style="?android:attr/borderlessButtonStyle"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/course_days_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Days"
+        android:textSize="25sp"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="2dp"
+        android:layout_below="@id/course_time_container"
+        />
+    <View
+        android:id="@+id/course_days_separator"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:layout_below="@id/course_days_label"/>
+
+    <LinearLayout
+        android:id="@+id/course_days_topRow"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/course_days_separator">
+
+        <CheckBox
+            android:id="@+id/mon_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MON"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:button="@drawable/custom_cb_white"
+            />
+
+        <CheckBox
+            android:id="@+id/wed_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WED"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="16dp"
+            android:button="@drawable/custom_cb_white"
+            />
+
+        <CheckBox
+            android:id="@+id/fri_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FRI"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="16dp"
+            android:button="@drawable/custom_cb_white"
+            />
+
+        <CheckBox
+            android:id="@+id/sun_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SUN"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="20dp"
+            android:button="@drawable/custom_cb_white"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/course_days_bottomRow"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/course_days_topRow">
+
+        <CheckBox
+            android:id="@+id/tue_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TUE"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="40dp"
+            android:button="@drawable/custom_cb_white"
+            />
+
+        <CheckBox
+            android:id="@+id/thur_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="THUR"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="20dp"
+            android:button="@drawable/custom_cb_white"
+            />
+
+        <CheckBox
+            android:id="@+id/sat_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAT"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="20dp"
+            android:button="@drawable/custom_cb_white"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/course_breakdown_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Breakdown"
+        android:textSize="25sp"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/course_days_bottomRow"
+        />
+
+    <View
+        android:id="@+id/course_breakdown_separator"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:layout_below="@id/course_breakdown_label"/>
+
+    <ImageView
+        android:id="@+id/add_topic_imageView"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignBottom="@id/course_breakdown_label"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="17dp"
+        android:padding="0dp"
+        android:background="@drawable/white_add_symbol"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/course_breakdowns_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/course_breakdown_separator"
+        android:layout_marginTop="10dp"
+        >
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        android:textColor="@color/second_light_blue_unpressed"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_textview"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/course_breakdowns_container"
+        />
+
+    <Space
+        android:layout_below="@id/doneButton"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        />
+
+
+</RelativeLayout>
+
+</ScrollView>
+
+    </RelativeLayout>

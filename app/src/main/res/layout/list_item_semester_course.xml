@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/semester_item_background_activated">
+
+
+    <TextView
+        android:id="@+id/semesterCourseTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FALL 2015"
+        android:textAllCaps="true"
+        android:textSize="40sp"
+        android:textColor="@android:color/white"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

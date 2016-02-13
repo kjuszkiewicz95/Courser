@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/semestersLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Semesters"
+        android:textSize="50sp"
+        android:textColor="@color/second_light_blue_unpressed"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+    <View
+        android:id="@+id/semesterSeparator"
+        android:layout_width="wrap_content"
+        android:layout_height="3dp"
+        android:background="@drawable/blue_green_gradient"
+        android:layout_below="@id/semestersLabel"
+        android:layout_marginTop="8dp"
+        />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/semesterSeparator"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:id="@android:id/empty"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You haven't added any semesters yet."
+            android:textSize="19sp"
+            android:textColor="@color/second_light_blue_unpressed"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:id="@+id/textView4"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Press the button below to get started."
+            android:textSize="19sp"
+            android:textColor="@color/second_light_blue_unpressed"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:id="@+id/textView5"/>
+
+        <Button
+            android:id="@+id/addSemesterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Semester"
+            android:textSize="25sp"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/gradient_button"
+            style="?android:attr/borderlessButtonStyle"
+            />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+<RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/rectangular_curved_border_white_transparent"
+    >
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Topic/To-do name"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="24sp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        />
+
+    <ImageView
+        android:id="@+id/delete_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/white_delete_symbol"
+        android:layout_alignTop="@id/nameEditText"
+        android:layout_marginTop="12dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        />
+
+</RelativeLayout>
+        <Space
+        android:layout_height="5dp"
+        android:layout_width="match_parent" />
+    </LinearLayout>

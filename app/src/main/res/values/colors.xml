@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="my_white">#FFFFFF</color>
+    <color name="light_blue_pressed">#33B1E3</color>
+    <color name="light_blue_unpressed">#5DC0E7</color>
+    <color name="second_light_blue_unpressed">#55ACEE</color>
+    <color name="second_light_blue_pressed">#2279BB</color>
+    <color name="greenish_blue">#009696</color>
+    <color name="greenish_blue_pressed">#008484</color>
+    <color name="second_greenish_blue">#009999</color>
+</resources>

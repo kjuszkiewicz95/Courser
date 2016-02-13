@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/button_separator"
+        android:layout_width="2dp"
+        android:layout_height="30dp"
+        android:background="@drawable/blue_green_gradient"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="Upcoming"
+        android:textSize="21sp"
+        android:textColor="@color/second_light_blue_unpressed"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/transparent"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_toLeftOf="@id/button_separator"
+        android:layout_marginTop="23dp"
+        />
+
+    <Button
+        android:id="@+id/passedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="Grades"
+        android:textSize="20sp"
+        android:textColor="@color/second_light_blue_unpressed"
+        android:layout_marginLeft="10dp"
+        android:background="@android:color/transparent"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_toRightOf="@id/button_separator"
+        android:layout_marginTop="23dp"
+        />
+
+    <TextView
+        android:id="@+id/pageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quizzes"
+        android:textSize="50sp"
+        android:textColor="@color/second_light_blue_unpressed"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/button_separator"
+        android:layout_marginTop="20dp"
+        />
+    <View
+        android:id="@+id/pageTitleSeparator"
+        android:layout_width="240dp"
+        android:layout_height="3dp"
+        android:background="@drawable/blue_green_gradient"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/pageTitle"
+        />
+    <LinearLayout
+        android:id="@android:id/empty"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/pageTitleSeparator"
+        android:layout_marginTop="45dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upcoming events for this category"
+            android:textSize="21sp"
+            android:textColor="@color/second_light_blue_unpressed"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:id="@+id/textView4"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="will be shown once you add them."
+            android:textSize="21sp"
+            android:textColor="@color/second_light_blue_unpressed"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:id="@+id/textView5"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Press the button below to get started."
+            android:textSize="21sp"
+            android:textColor="@color/second_light_blue_unpressed"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:id="@+id/textView6"/>
+
+        <Button
+            android:id="@+id/addEventButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Event"
+            android:textSize="25sp"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/gradient_button"
+            style="?android:attr/borderlessButtonStyle"
+            />
+    </LinearLayout>
+    <ListView
+        android:id="@android:id/list"
+        android:layout_below="@id/pageTitleSeparator"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/holo_blue_light"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        />
+
+</RelativeLayout>

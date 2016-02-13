@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+    <TextView
+        android:id="@+id/semesterSeasonLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Season:"
+        android:textColor="@color/second_light_blue_unpressed"
+        android:textSize="25sp"
+        android:layout_marginLeft="15dp"
+        android:layout_centerVertical="true"
+        />
+
+    <EditText
+        android:id="@+id/seasonEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/semesterSeasonLabel"
+        android:hint="enter"
+        android:textColorHint="@color/second_light_blue_unpressed"
+        android:ems="6"
+        android:layout_centerVertical="true"
+        />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>

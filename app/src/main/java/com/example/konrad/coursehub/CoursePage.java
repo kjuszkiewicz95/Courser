@@ -15,7 +15,7 @@ import java.util.UUID;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CourseGradeCategoryPage extends Fragment {
+public class CoursePage extends Fragment {
 
     public static final String EXTRA_GRADE_CATEGORY_TITLE = "com.example.konrad.coursehub.gradeCategoryTitle";
     public static final String EXTRA_SEMESTER_ID = "com.example.konrad.coursehub.semeseterId";
@@ -26,7 +26,7 @@ public class CourseGradeCategoryPage extends Fragment {
     UUID mSemesterId;
     UUID mCourseId;
 
-    public CourseGradeCategoryPage() {
+    public CoursePage() {
         // Required empty public constructor
     }
 
@@ -48,14 +48,14 @@ public class CourseGradeCategoryPage extends Fragment {
         }
         if (!mGradeCategoryTitle.equals("Extra")) {
             CourseGradeCategoryPageUpcoming upcomingFragment = CourseGradeCategoryPageUpcoming.newInstance(mSemesterId, mCourseId, mGradeCategoryTitle);
-            // upcomingFragment.setTargetFragment(CourseGradeCategoryPage.this, REQUEST_UPCOMING);
+            // upcomingFragment.setTargetFragment(CoursePage.this, REQUEST_UPCOMING);
             FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentUpcomingPassedContainer, upcomingFragment).commit();
+            transaction.replace(R.id.fragmentPageContainer, upcomingFragment).commit();
         }
         else {
             CourseExtraPage extraFragment = new CourseExtraPage();
             FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentUpcomingPassedContainer, extraFragment).commit();
+            transaction.replace(R.id.fragmentPageContainer, extraFragment).commit();
         }
     }
 
@@ -71,13 +71,13 @@ public class CourseGradeCategoryPage extends Fragment {
     public void switchToPassed() {
         CourseGradeCategoryPagePassed passedFragment = CourseGradeCategoryPagePassed.newInstance(mSemesterId, mCourseId, mGradeCategoryTitle);
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragmentUpcomingPassedContainer, passedFragment).commit();
+        transaction.replace(R.id.fragmentPageContainer, passedFragment).commit();
     }
 
     public void switchToUpcoming() {
         CourseGradeCategoryPageUpcoming upcomingFragment = CourseGradeCategoryPageUpcoming.newInstance(mSemesterId, mCourseId, mGradeCategoryTitle);
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragmentUpcomingPassedContainer, upcomingFragment).commit();
+        transaction.replace(R.id.fragmentPageContainer, upcomingFragment).commit();
 
     }
 
@@ -88,9 +88,9 @@ public class CourseGradeCategoryPage extends Fragment {
         outState.putSerializable(EXTRA_COURSE_ID, mCourseId);
         outState.putString(EXTRA_GRADE_CATEGORY_TITLE, mGradeCategoryTitle);
     }
-    public static CourseGradeCategoryPage newInstance(UUID semesterId, UUID courseId, String gradeCategoryTitle) {
+    public static CoursePage newInstance(UUID semesterId, UUID courseId, String gradeCategoryTitle) {
         Log.i(TAG, "GRADE CATEGORY PAGE CREATED IS A NEW INSTANCE");
-        CourseGradeCategoryPage fragment = new CourseGradeCategoryPage();
+        CoursePage fragment = new CoursePage();
         Bundle args = new Bundle();
         args.putString(EXTRA_GRADE_CATEGORY_TITLE, gradeCategoryTitle);
         args.putSerializable(EXTRA_SEMESTER_ID, semesterId);
@@ -108,14 +108,14 @@ public class CourseGradeCategoryPage extends Fragment {
 //        if (fragmentToStartCode == REQUEST_UPCOMING) {
 //            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
 //            CourseGradeCategoryPageUpcoming upcomingFragment = new CourseGradeCategoryPageUpcoming();
-//            upcomingFragment.setTargetFragment(CourseGradeCategoryPage.this, REQUEST_UPCOMING);
+//            upcomingFragment.setTargetFragment(CoursePage.this, REQUEST_UPCOMING);
 //            transaction.replace(R.id.fragmentUpcomingPassedContainer, upcomingFragment).commit();
 //
 //        }
 //        else if (fragmentToStartCode == REQUEST_PASSED) {
 //            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
 //            CourseGradeCategoryPagePassed passedFragment = new CourseGradeCategoryPagePassed();
-//            passedFragment.setTargetFragment(CourseGradeCategoryPage.this, REQUEST_PASSED);
+//            passedFragment.setTargetFragment(CoursePage.this, REQUEST_PASSED);
 //            transaction.replace(R.id.fragmentUpcomingPassedContainer, passedFragment).commit();
 //        }
 //        else {

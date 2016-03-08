@@ -48,13 +48,13 @@ public class FragmentAdapter extends FragmentStatePagerAdapter implements IconPa
             return fragment;
         }
         else if (currentPage < numGradeCategories){
-            CourseGradeCategoryPage fragment = CourseGradeCategoryPage.newInstance(mSemesterId, mCourseId, mCourse.getGradeCategories().get(currentPage).getTitle());
+            CoursePage fragment = CoursePage.newInstance(mSemesterId, mCourseId, mCourse.getGradeCategories().get(currentPage).getTitle());
             mPageReferenceMap.put(position, fragment);
             return fragment;
         }
         else {
             // one of the extra pages, but not main
-            CourseGradeCategoryPage fragment = CourseGradeCategoryPage.newInstance(mSemesterId, mCourseId, "Extra");
+            CoursePage fragment = CoursePage.newInstance(mSemesterId, mCourseId, "Extra");
             mPageReferenceMap.put(position, fragment);
             return fragment;
         }

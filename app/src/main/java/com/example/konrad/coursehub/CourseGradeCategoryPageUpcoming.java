@@ -148,7 +148,8 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
             dateTimeTextView.setText(dateString);
             TextView daysLeftTextView = (TextView) convertView.findViewById(R.id.list_item_days_left);
             Calendar cal = Calendar.getInstance();
-            int today = cal.DAY_OF_MONTH;
+            int today = cal.get(Calendar.DAY_OF_MONTH);
+            System.out.println("Today is: " + today);
             int daysLeft = upcomingEvent.getDay() - today;
             daysLeftTextView.setText(Integer.toString(daysLeft));
             return convertView;
@@ -183,7 +184,7 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
 //            return;
 //        }
 //        Intent i = new Intent();
-//        i.putExtra(CourseGradeCategoryPage.EXTRA_FRAGMENT_TO_STRART, CourseGradeCategoryPage.REQUEST_PASSED);
+//        i.putExtra(CoursePage.EXTRA_FRAGMENT_TO_STRART, CoursePage.REQUEST_PASSED);
 //        getTargetFragment().onActivityResult(getTargetRequestCode(), resultCode, i);
 //    }
 

@@ -66,13 +66,13 @@ public class CoursePagerActivity extends FragmentActivity implements CourseGrade
 
     public void onPassedSelected() {
         int index = mPager.getCurrentItem();
-        CourseGradeCategoryPage fragment = (CourseGradeCategoryPage) mAdapter.getFragment(index);
+        CoursePage fragment = (CoursePage) mAdapter.getFragment(index);
         fragment.switchToPassed();
     }
 
     public void onUpcomingSelected() {
         int index = mPager.getCurrentItem();
-        CourseGradeCategoryPage fragment = (CourseGradeCategoryPage) mAdapter.getFragment(index);
+        CoursePage fragment = (CoursePage) mAdapter.getFragment(index);
         fragment.switchToUpcoming();
     }
 

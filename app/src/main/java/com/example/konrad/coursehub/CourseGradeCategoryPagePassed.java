@@ -85,7 +85,7 @@ public class CourseGradeCategoryPagePassed extends Fragment {
 //            return;
 //        }
 //        Intent i = new Intent();
-//        i.putExtra(CourseGradeCategoryPage.EXTRA_FRAGMENT_TO_STRART, CourseGradeCategoryPage.REQUEST_UPCOMING);
+//        i.putExtra(CoursePage.EXTRA_FRAGMENT_TO_STRART, CoursePage.REQUEST_UPCOMING);
 //        getTargetFragment().onActivityResult(getTargetRequestCode(), resultCode, i);
 //    }
 

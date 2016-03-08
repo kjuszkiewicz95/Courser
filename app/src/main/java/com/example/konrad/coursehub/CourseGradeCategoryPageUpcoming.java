@@ -124,7 +124,9 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
             }
         });
         ListView listView = (ListView)v.findViewById(android.R.id.list);
-        UpcomingEventsArrayAdapter adapter = new UpcomingEventsArrayAdapter(mCourse.getCourseEvents());
+        // here I should be setting gradeCategory.getCourseEvents() not course.getCourseEvents()
+        //UpcomingEventsArrayAdapter adapter = new UpcomingEventsArrayAdapter(mCourse.getCourseEvents());
+        UpcomingEventsArrayAdapter adapter = new UpcomingEventsArrayAdapter(mGradeCategory.getCourseEvents());
         listView.setAdapter(adapter);
         return v;
     }
@@ -137,21 +139,18 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
             if  (convertView == null) {
                 convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_event_small, null);
             }
-            // THE EXTRA GRADE CATEGORIES ARE NOT ACTUALLY GRADE CATEGORIES AND THATS WHY THEY ARE NOT FOUND AND THATS WHY THEY ARE NULL
-            if (mGradeCategory != null && mGradeCategory.getTitle().equals("EXAMS")) {
-                Log.i(TAG, "POSITION IS:" + position);
-                CourseEvent upcomingEvent = mGradeCategory.getCourseEvents().get(position);
-                TextView titleTextView = (TextView) convertView.findViewById(R.id.list_item_title);
-                titleTextView.setText(upcomingEvent.getTitle());
-                TextView dateTimeTextView = (TextView) convertView.findViewById(R.id.list_item_dateTime);
-                String dateString = upcomingEvent.getMonth() + "/" + upcomingEvent.getDay() + " " + upcomingEvent.getStartHour() + ":" + upcomingEvent.getStartMinute();
-                dateTimeTextView.setText(dateString);
-                TextView daysLeftTextView = (TextView) convertView.findViewById(R.id.list_item_days_left);
-                Calendar cal = Calendar.getInstance();
-                int today = cal.DAY_OF_MONTH;
-                int daysLeft = upcomingEvent.getDay() - today;
-                daysLeftTextView.setText(Integer.toString(daysLeft));
-            }
+            Log.i(TAG, "POSITION IS:" + position);
+            CourseEvent upcomingEvent = mGradeCategory.getCourseEvents().get(position);
+            TextView titleTextView = (TextView) convertView.findViewById(R.id.list_item_title);
+            titleTextView.setText(upcomingEvent.getTitle());
+            TextView dateTimeTextView = (TextView) convertView.findViewById(R.id.list_item_dateTime);
+            String dateString = upcomingEvent.getMonth() + "/" + upcomingEvent.getDay() + " | " + upcomingEvent.getStartHour() + ":" + upcomingEvent.getStartMinute();
+            dateTimeTextView.setText(dateString);
+            TextView daysLeftTextView = (TextView) convertView.findViewById(R.id.list_item_days_left);
+            Calendar cal = Calendar.getInstance();
+            int today = cal.DAY_OF_MONTH;
+            int daysLeft = upcomingEvent.getDay() - today;
+            daysLeftTextView.setText(Integer.toString(daysLeft));
             return convertView;
         }
     }

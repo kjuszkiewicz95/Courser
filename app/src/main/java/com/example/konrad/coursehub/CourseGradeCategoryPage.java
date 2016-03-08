@@ -46,10 +46,17 @@ public class CourseGradeCategoryPage extends Fragment {
             mCourseId = (UUID) args.getSerializable(EXTRA_COURSE_ID);
             mGradeCategoryTitle = args.getString(EXTRA_GRADE_CATEGORY_TITLE);
         }
-        CourseGradeCategoryPageUpcoming upcomingFragment = CourseGradeCategoryPageUpcoming.newInstance(mSemesterId, mCourseId, mGradeCategoryTitle);
-        // upcomingFragment.setTargetFragment(CourseGradeCategoryPage.this, REQUEST_UPCOMING);
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragmentUpcomingPassedContainer, upcomingFragment).commit();
+        if (!mGradeCategoryTitle.equals("Extra")) {
+            CourseGradeCategoryPageUpcoming upcomingFragment = CourseGradeCategoryPageUpcoming.newInstance(mSemesterId, mCourseId, mGradeCategoryTitle);
+            // upcomingFragment.setTargetFragment(CourseGradeCategoryPage.this, REQUEST_UPCOMING);
+            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragmentUpcomingPassedContainer, upcomingFragment).commit();
+        }
+        else {
+            CourseExtraPage extraFragment = new CourseExtraPage();
+            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragmentUpcomingPassedContainer, extraFragment).commit();
+        }
     }
 
     @Override

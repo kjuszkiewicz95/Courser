@@ -32,6 +32,8 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
     private Course mCourse;
     private GradeCategory mGradeCategory;
 
+    UpcomingEventsArrayAdapter mAdapter;
+
 
     public static final String EXTRA_GRADE_CATEGORY_TITLE = "com.example.konrad.coursehub.gradeCategoryTitle";
     public static final String EXTRA_SEMESTER_ID = "com.example.konrad.coursehub.semeseterId";
@@ -126,8 +128,8 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
         ListView listView = (ListView)v.findViewById(android.R.id.list);
         // here I should be setting gradeCategory.getCourseEvents() not course.getCourseEvents()
         //UpcomingEventsArrayAdapter adapter = new UpcomingEventsArrayAdapter(mCourse.getCourseEvents());
-        UpcomingEventsArrayAdapter adapter = new UpcomingEventsArrayAdapter(mGradeCategory.getCourseEvents());
-        listView.setAdapter(adapter);
+        mAdapter = new UpcomingEventsArrayAdapter(mGradeCategory.getCourseEvents());
+        listView.setAdapter(mAdapter);
         return v;
     }
 
@@ -166,6 +168,11 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
                     + " must implement PassedSelectedListener");
         }
 
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        mAdapter.notifyDataSetChanged();
     }
 
     public static CourseGradeCategoryPageUpcoming newInstance(UUID semesterId, UUID courseId, String gradeCategoryTitle) {

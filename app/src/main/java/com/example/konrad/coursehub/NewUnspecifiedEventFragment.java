@@ -72,7 +72,7 @@ public class NewUnspecifiedEventFragment extends Fragment {
     boolean dateChanged = false;
 
     private ArrayList<View> eventTopicsViewList;
-    int originalCourseEventIndex = 0;
+    int mOriginalCourseEventIndex = 0;
 
     public NewUnspecifiedEventFragment() {
         // Required empty public constructor
@@ -101,11 +101,12 @@ public class NewUnspecifiedEventFragment extends Fragment {
         }
         if (courseEventId != null) {
             for (int i = 0; i < mCourse.getCourseEvents().size(); i++) {
-                UUID eventId = mCourse.getCourseEvents().get(i).getId();
-                if (eventId.equals(courseEventId)) {
-                    originalCourseEventIndex = i;
+                CourseEvent c = mCourse.getCourseEvents().get(i);
+                //UUID eventId = mCourse.getCourseEvents().get(i).getId();
+                if (c.getId().equals(courseEventId)) {
+                    mOriginalCourseEventIndex = i;
                     // MAKING EXACT COPY
-                    mCourseEvent = CourseEvent.newInstance(mCourse.getCourseEvents().get(i));
+                    mCourseEvent = CourseEvent.newInstance(c);
                 }
             }
         }
@@ -255,7 +256,7 @@ public class NewUnspecifiedEventFragment extends Fragment {
             public void onClick(View view) {
                 final View newTopicView = inflater.inflate(R.layout.list_item_topic_to_do_edit, null);
                 final CourseEventTopic newTopic = new CourseEventTopic();
-                mCourseEvent.getTopics().add(newTopic);
+
                 EditText nameEditText = (EditText)newTopicView.findViewById(R.id.nameEditText);
                 nameEditText.setTextColor(Color.WHITE);
                 nameEditText.addTextChangedListener(new TextWatcher() {
@@ -263,28 +264,33 @@ public class NewUnspecifiedEventFragment extends Fragment {
                     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                     }
+
                     @Override
                     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                     }
+
                     @Override
                     public void afterTextChanged(Editable editable) {
                         int position = eventTopicsViewList.indexOf(newTopicView);
                         mCourseEvent.getTopics().get(position).setTitle(editable.toString());
                     }
                 });
-                eventTopicsViewList.add(newTopicView);
-                topicsContainer.addView(newTopicView);
                 ImageView deleteTopicImageView = (ImageView)newTopicView.findViewById(R.id.delete_imageView);
                 deleteTopicImageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         int position = eventTopicsViewList.indexOf(newTopicView);
+                        // removing topic from CourseEvent object, and removing topic view from list and container view
                         mCourseEvent.getTopics().remove(position);
                         eventTopicsViewList.remove(newTopicView);
                         topicsContainer.removeView(newTopicView);
                     }
                 });
+                // adding topic to CourseEvent object, and removing topic view to list and container view
+                mCourseEvent.getTopics().add(newTopic);
+                eventTopicsViewList.add(newTopicView);
+                topicsContainer.addView(newTopicView);
             }
         });
         mDoneButton = (Button)v.findViewById(R.id.doneButton);
@@ -306,7 +312,7 @@ public class NewUnspecifiedEventFragment extends Fragment {
                 // do different things depending on whether courseEventId == null or not (whether we are editing existing or adding a new course event)
                 else {
                     // REPLACE
-                    mCourse.getCourseEvents().set(originalCourseEventIndex, mCourseEvent);
+                    mCourse.getCourseEvents().set(mOriginalCourseEventIndex, mCourseEvent);
                     // NOW ADD TO SPECIFIC GRADE CATEGORY
                     ArrayList<GradeCategory> courseGradeCategories = mCourse.getGradeCategories();
                     for(GradeCategory g: courseGradeCategories) {

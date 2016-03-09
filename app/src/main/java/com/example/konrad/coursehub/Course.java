@@ -40,6 +40,22 @@ public class Course {
         mId= UUID.randomUUID();
     }
 
+    public static Course newInstance(Course courseToDuplicate) {
+        Course duplicateCourse = new Course();
+        duplicateCourse.setTitle(courseToDuplicate.getTitle());
+        duplicateCourse.setStartHour(courseToDuplicate.getStartHour());
+        duplicateCourse.setStartMinute(courseToDuplicate.getStartMinute());
+        duplicateCourse.setEndHour(courseToDuplicate.getEndHour());
+        duplicateCourse.setEndMinute(courseToDuplicate.getEndMinute());
+        duplicateCourse.setDays(courseToDuplicate.getDays());
+        duplicateCourse.setGradeCategories(duplicateCourse.getGradeCategories());
+        duplicateCourse.setCourseEvents(duplicateCourse.getCourseEvents());
+        duplicateCourse.setStartTimeSet(duplicateCourse.isStartTimeSet());
+        duplicateCourse.setEndTimeSet(duplicateCourse.isEndTimeSet());
+        duplicateCourse.setId(duplicateCourse.getId());
+        return duplicateCourse;
+    }
+
     public Course(JSONObject json) throws JSONException{
         mTitle = json.getString(JSON_TITLE);
         mStartHour = json.getInt(JSON_START_HOUR);

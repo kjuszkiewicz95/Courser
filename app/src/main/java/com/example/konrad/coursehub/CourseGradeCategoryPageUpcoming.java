@@ -149,7 +149,6 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
             TextView daysLeftTextView = (TextView) convertView.findViewById(R.id.list_item_days_left);
             Calendar cal = Calendar.getInstance();
             int today = cal.get(Calendar.DAY_OF_MONTH);
-            System.out.println("Today is: " + today);
             int daysLeft = upcomingEvent.getDay() - today;
             daysLeftTextView.setText(Integer.toString(daysLeft));
             return convertView;

@@ -165,7 +165,6 @@ public class NewUnspecifiedEventFragment extends Fragment {
                 dialog.show(fm, DIALOG_START_TIME);
             }
         });
-
         mEndTimeButton = (Button)v.findViewById(R.id.endTimeButton);
         mEndTimeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -203,9 +202,10 @@ public class NewUnspecifiedEventFragment extends Fragment {
                     currentDay = cal.get(Calendar.DAY_OF_MONTH);
                 }
                 else {
-                    currentYear = mCourseEvent.getYear();
-                    currentMonth = mCourseEvent.getMonth();
-                    currentDay = mCourseEvent.getDay();
+                    Calendar endDate = mCourseEvent.getEndDate();
+                    currentYear = endDate.get(Calendar.YEAR);
+                    currentMonth = endDate.get(Calendar.MONTH);
+                    currentDay = endDate.get(Calendar.DAY_OF_MONTH);
                 }
                 FragmentManager fm = getFragmentManager();
                 DatePickerFragment dialog = DatePickerFragment.newInstance(currentYear, currentMonth, currentDay);
@@ -355,9 +355,14 @@ public class NewUnspecifiedEventFragment extends Fragment {
             int year = i.getIntExtra(DatePickerFragment.EXTRA_YEAR, 2007);
             int month = i.getIntExtra(DatePickerFragment.EXTRA_MONTH, 7);
             int day = i.getIntExtra(DatePickerFragment.EXTRA_DAY, 7);
-            mCourseEvent.setYear(year);
-            mCourseEvent.setMonth(month);
-            mCourseEvent.setDay(day);
+//            mCourseEvent.setYear(year);
+//            mCourseEvent.setMonth(month);
+//            mCourseEvent.setDay(day);
+            Calendar endDate = Calendar.getInstance();
+            endDate.set(Calendar.YEAR, year);
+            endDate.set(Calendar.MONTH, month);
+            endDate.set(Calendar.DAY_OF_MONTH, day);
+            mCourseEvent.setEndDate(endDate);
             String dateString = dateStringFormatter(month, day, year);
             mDateButton.setText(dateString);
             dateChanged = true;

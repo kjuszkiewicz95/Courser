@@ -146,17 +146,29 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
             TextView titleTextView = (TextView) convertView.findViewById(R.id.list_item_title);
             titleTextView.setText(upcomingEvent.getTitle());
             TextView dateTimeTextView = (TextView) convertView.findViewById(R.id.list_item_dateTime);
-            String dateString = upcomingEvent.getMonth() + "/" + upcomingEvent.getDay() + " | " + upcomingEvent.getStartHour() + ":" + upcomingEvent.getStartMinute();
+            int month = upcomingEvent.getEndDate().get(Calendar.MONTH);
+            int dayOfMonth = upcomingEvent.getEndDate().get(Calendar.DAY_OF_MONTH);
+            String dateString = month + "/" + dayOfMonth + " | " + upcomingEvent.getStartHour() + ":" + upcomingEvent.getStartMinute();
             dateTimeTextView.setText(dateString);
             TextView daysLeftTextView = (TextView) convertView.findViewById(R.id.list_item_days_left);
-            Calendar cal = Calendar.getInstance();
-            int today = cal.get(Calendar.DAY_OF_MONTH);
-            int daysLeft = upcomingEvent.getDay() - today;
+//            Calendar cal = Calendar.getInstance();
+//            int today = cal.get(Calendar.DAY_OF_MONTH);
+//            int daysLeft = upcomingEvent.getDay() - today;
+            int daysLeft = courseEventDaysLeft(upcomingEvent.getEndDate());
             daysLeftTextView.setText(Integer.toString(daysLeft));
             return convertView;
         }
     }
 
+    public int courseEventDaysLeft(Calendar eventDate) {
+        Calendar current = Calendar.getInstance();
+        int daysUntilEvent = 0;
+        while (current.before(eventDate)) {
+            current.add(Calendar.DAY_OF_MONTH, 1);
+            daysUntilEvent++;
+        }
+        return daysUntilEvent;
+    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -167,7 +179,6 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
             throw new ClassCastException(activity.toString()
                     + " must implement PassedSelectedListener");
         }
-
     }
     @Override
     public void onResume() {

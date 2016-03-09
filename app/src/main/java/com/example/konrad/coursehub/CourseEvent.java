@@ -1,6 +1,7 @@
 package com.example.konrad.coursehub;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.UUID;
 
 /**
@@ -18,6 +19,9 @@ public class CourseEvent {
     private int mMonth;
     private int mDay;
     private int mYear;
+
+
+    private Calendar endDate = null;
     private UUID mId;
 
     public CourseEvent() {
@@ -139,4 +143,15 @@ public class CourseEvent {
     public void setId(UUID id) {
         mId = id;
     }
+
+
+
+    public Calendar getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Calendar endDate) {
+        this.endDate = endDate;
+    }
 }
+

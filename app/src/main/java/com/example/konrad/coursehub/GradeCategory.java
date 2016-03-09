@@ -18,9 +18,14 @@ public class GradeCategory {
     private double mPercentage;
     private boolean mPercentageSet = false;
     private ArrayList<CourseEvent> mCourseEvents;
+    private ArrayList<CourseEvent> mUpcomingEvents;
+    private ArrayList<CourseEvent> mPassedEvents;
+
 
     public GradeCategory() {
         mCourseEvents = new ArrayList<CourseEvent>();
+        mUpcomingEvents = new ArrayList<CourseEvent>();
+        mPassedEvents = new ArrayList<CourseEvent>();
     }
 
     public GradeCategory(JSONObject json) throws JSONException {
@@ -67,5 +72,21 @@ public class GradeCategory {
 
     public void setCourseEvents(ArrayList<CourseEvent> courseEvents) {
         mCourseEvents = courseEvents;
+    }
+
+    public ArrayList<CourseEvent> getPassedEvents() {
+        return mPassedEvents;
+    }
+
+    public void setPassedEvents(ArrayList<CourseEvent> passedEvents) {
+        mPassedEvents = passedEvents;
+    }
+
+    public ArrayList<CourseEvent> getUpcomingEvents() {
+        return mUpcomingEvents;
+    }
+
+    public void setUpcomingEvents(ArrayList<CourseEvent> upcomingEvents) {
+        mUpcomingEvents = upcomingEvents;
     }
 }

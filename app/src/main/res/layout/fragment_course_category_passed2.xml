@@ -106,6 +106,33 @@
         android:layout_below="@id/displayEarnedPercentageContainer"
         />
 
+    <include layout="@layout/list_item_event_small_ungraded"
+             android:id="@+id/include1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/gradeSeparatorBottom"
+             android:layout_marginTop="20dp"
+             android:layout_marginLeft="15dp"
+             android:layout_marginRight="15dp"/>
+
+    <include layout="@layout/list_item_event_small_ungraded"
+             android:id="@+id/include2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/include1"
+             android:layout_marginTop="8dp"
+             android:layout_marginLeft="15dp"
+             android:layout_marginRight="15dp"/>
+
+    <include layout="@layout/list_item_event_small_graded"
+             android:id="@+id/include3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/include2"
+             android:layout_marginTop="8dp"
+             android:layout_marginLeft="15dp"
+             android:layout_marginRight="15dp"/>
+
 
     <View
         android:layout_width="match_parent"
@@ -116,53 +143,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
         />
-
-    <LinearLayout
-        android:id="@android:id/empty"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_below="@id/gradeSeparatorBottom"
-        android:layout_marginTop="45dp"
-        >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Course events are displayed here"
-            android:textSize="21sp"
-            android:textColor="@color/second_light_blue_unpressed"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:id="@+id/textView4"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="after they have passed, are graded, "
-            android:textSize="21sp"
-            android:textColor="@color/second_light_blue_unpressed"
-            android:gravity="center"
-            android:layout_marginTop="5dp"
-            android:id="@+id/textView5"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="or if a date was not provided at creation"
-            android:textSize="21sp"
-            android:textColor="@color/second_light_blue_unpressed"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:id="@+id/textView6"/>
-
-    </LinearLayout>
-    <ListView
-        android:id="@android:id/list"
-        android:layout_below="@id/gradeSeparatorBottom"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
 
 </RelativeLayout>

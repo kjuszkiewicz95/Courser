@@ -303,7 +303,23 @@ public class NewUnspecifiedEventFragment extends Fragment {
                     ArrayList<GradeCategory> courseGradeCategories = mCourse.getGradeCategories();
                     for(GradeCategory g: courseGradeCategories) {
                         if (g.getTitle().equals(mCourseEvent.getGradeCategory())) {
+                            // add to general list
                             g.getCourseEvents().add(mCourseEvent);
+                            // now determine if we should add to upcoming or passed list
+                            if (mCourseEvent.getEndDate() == null) {
+                                // no date given put it in passed
+                                CourseUpdater.get(getActivity()).addEventToPassed(g, mCourseEvent);
+                            }
+                            else {
+                                // date given we have to determine if we should put in upcoming or passed
+                                Calendar current = Calendar.getInstance();
+                                if (!mCourseEvent.getEndDate().before(current)) {
+                                    CourseUpdater.get(getActivity()).addEventToUpcoming(g, mCourseEvent);
+                                }
+                                else {
+                                    CourseUpdater.get(getActivity()).addEventToPassed(g, mCourseEvent);
+                                }
+                            }
                         }
                     }
                     Log.i(TAG, mCourseEvent.getTitle() + "added to" + mCourse.getTitle());

@@ -128,7 +128,7 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
         ListView listView = (ListView)v.findViewById(android.R.id.list);
         // here I should be setting gradeCategory.getCourseEvents() not course.getCourseEvents()
         //UpcomingEventsArrayAdapter adapter = new UpcomingEventsArrayAdapter(mCourse.getCourseEvents());
-        mAdapter = new UpcomingEventsArrayAdapter(mGradeCategory.getCourseEvents());
+        mAdapter = new UpcomingEventsArrayAdapter(mGradeCategory.getUpcomingEvents());
         listView.setAdapter(mAdapter);
         return v;
     }
@@ -142,7 +142,7 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
                 convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_event_small, null);
             }
             Log.i(TAG, "POSITION IS:" + position);
-            CourseEvent upcomingEvent = mGradeCategory.getCourseEvents().get(position);
+            CourseEvent upcomingEvent = mGradeCategory.getUpcomingEvents().get(position);
             TextView titleTextView = (TextView) convertView.findViewById(R.id.list_item_title);
             titleTextView.setText(upcomingEvent.getTitle());
             TextView dateTimeTextView = (TextView) convertView.findViewById(R.id.list_item_dateTime);
@@ -180,6 +180,7 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
     @Override
     public void onResume() {
         super.onResume();
+        CourseUpdater.get(getActivity()).updatePastEvents(mCourse);
         mAdapter.notifyDataSetChanged();
     }
 

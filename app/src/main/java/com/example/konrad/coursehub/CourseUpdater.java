@@ -27,14 +27,22 @@ public class CourseUpdater {
         for (GradeCategory g: courseToSearch.getGradeCategories()) {
             for (CourseEvent c: g.getUpcomingEvents()) {
                 if (!currentDate.before(c.getEndDate())) {
-                    markEventPassed(g, c);
+                    moveEventToPassed(g, c);
                 }
             }
         }
     }
 
-    public void markEventPassed(GradeCategory gradeCategory, CourseEvent passedCourseEvent) {
+    public void moveEventToPassed(GradeCategory gradeCategory, CourseEvent passedCourseEvent) {
         gradeCategory.getUpcomingEvents().remove(passedCourseEvent);
-        gradeCategory.getPassedEvents().add(passedCourseEvent);
+        addEventToPassed(gradeCategory, passedCourseEvent);
     }
+
+    public void addEventToUpcoming(GradeCategory gradeCategory, CourseEvent courseEvent) {
+        gradeCategory.getUpcomingEvents().add(courseEvent);
+    }
+    public void addEventToPassed(GradeCategory gradeCategory, CourseEvent courseEvent) {
+        gradeCategory.getPassedEvents().add(courseEvent);
+    }
+
 }

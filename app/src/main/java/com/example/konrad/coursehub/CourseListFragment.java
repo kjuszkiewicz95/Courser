@@ -104,14 +104,14 @@ public class CourseListFragment extends ListFragment {
             }
             @Override
             public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
+                int length = lv.getCount();
                 switch (menuItem.getItemId()) {
                     case R.id.menu_item_edit_semester:
-                        int length = lv.getCount();
-                        SparseBooleanArray checked = lv.getCheckedItemPositions();
+                        SparseBooleanArray checkedEdit = lv.getCheckedItemPositions();
                         Course courseToEdit = new Course();
                         int count = 0;
                         for (int i = 0; i < length; i++) {
-                            if (checked.get(i) == true) {
+                            if (checkedEdit.get(i) == true) {
                                 count++;
                                 courseToEdit = mAdapter.getItem(i);
                             }
@@ -126,6 +126,31 @@ public class CourseListFragment extends ListFragment {
                             transaction.commit();
                             actionMode.finish();
                         }
+                        return true;
+                    case R.id.menu_item_remove_semester:
+                        SparseBooleanArray checkedDelete = lv.getCheckedItemPositions();
+                        ArrayList<Integer> positionsToDelete = new ArrayList<Integer>();
+                        for (int j = 0; j < length; j++) {
+                            if(checkedDelete.get(j) == true) {
+                                positionsToDelete.add(j);
+                            }
+                        }
+                        // After we figured out which courses in the list we want to delete, let's delete them
+                        int decreasingListIndexCorrection = 0;
+                        for (int position: positionsToDelete) {
+                            // the first time we remove we have no problems
+                            if (mSemester.getCourses().size() == length) {
+                                mSemester.getCourses().remove(position);
+                                decreasingListIndexCorrection++;
+                            }
+                            // not the first time removing, list is smaller than when indices were originally calculated
+                            else {
+                                mSemester.getCourses().remove(position - decreasingListIndexCorrection);
+                                decreasingListIndexCorrection++;
+                            }
+                        }
+                        mAdapter.notifyDataSetChanged();
+                        Academics.get(getActivity()).saveSemesters();
                         return true;
                     default:
                         return false;

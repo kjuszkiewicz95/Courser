@@ -6,9 +6,14 @@ import android.app.Fragment;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -43,6 +48,7 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         Log.i(TAG, "onCreate start: |");
 //        if (savedInstanceState == null) {
 //            Log.i(TAG,"SAVEDINSTANCE STATE NULL");
@@ -111,6 +117,44 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v  = inflater.inflate(R.layout.fragment_course_category_upcoming, container, false);
+        ListView lv = (ListView)v.findViewById(android.R.id.list);
+        lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        lv.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
+            @Override
+            public void onItemCheckedStateChanged(ActionMode actionMode, int i, long l, boolean b) {
+
+            }
+
+            @Override
+            public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+                MenuInflater menuInflater = actionMode.getMenuInflater();
+                menuInflater.inflate(R.menu.context_menu_grade_category_page, menu);
+                return false;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
+                switch(menuItem.getItemId()) {
+                    case R.id.menu_item_edit_course_event:
+                        return true;
+                    case R.id.menu_item_remove_course_event:
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode actionMode) {
+
+            }
+        });
+
         TextView pageTitle = (TextView)v.findViewById(R.id.pageTitle);
         pageTitle.setText(mGradeCategoryTitle);
         mPassedButton = (Button)v.findViewById(R.id.passedButton);
@@ -165,6 +209,12 @@ public class CourseGradeCategoryPageUpcoming extends ListFragment {
             daysUntilEvent++;
         }
         return daysUntilEvent;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+        super.onCreateOptionsMenu(menu, menuInflater);
+        menuInflater.inflate(R.menu.menu_fragment_grade_category_page, menu);
     }
 
     @Override
